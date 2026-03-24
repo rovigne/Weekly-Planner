@@ -1,0 +1,34 @@
+<div class="planner-container">
+  <!-- Header -->
+  <div class="planner-header">
+    <div class="week-info">
+      <span class="week-label">WEEK OF</span>
+      <span class="week-date">{{ weekDateRange }}</span>
+    </div>
+    <h1 class="planner-title">Rine's PLANNER</h1>
+  </div>
+
+  <div class="planner-content">
+    <!-- Left Sidebar -->
+    <div class="left-sidebar">
+      <app-priority-list></app-priority-list>
+      <app-notes-section></app-notes-section>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="days-grid">
+        <app-day-card 
+          *ngFor="let day of dayColumns" 
+          [day]="day">
+        </app-day-card>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-sidebar">
+      <app-todo-list></app-todo-list>
+      <app-missed-tasks></app-missed-tasks>
+    </div>
+  </div>
+</div>

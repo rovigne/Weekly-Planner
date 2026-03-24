@@ -1,0 +1,40 @@
+.notes-box {
+  border: 2px solid #d4c5b9;
+  border-radius: 8px;
+  padding: 18px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.notes-header {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #b8a898;
+  font-weight: bold;
+  margin-bottom: 15px;
+  writing-mode: horizontal-tb;
+  text-orientation: initial;
+}
+
+.notes-textarea {
+  flex: 1;
+  border: 1px dashed #d4c5b9;
+  border-radius: 4px;
+  padding: 15px;
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  color: #b8a898;
+  resize: vertical;
+  outline: none;
+  min-height: 200px;
+}
+
+.notes-textarea::placeholder {
+  color: #d4c5b9;
+}
+
+.notes-textarea:focus {
+  border-color: #b8a898;
+}

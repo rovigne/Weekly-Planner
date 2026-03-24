@@ -1,0 +1,28 @@
+<div class="priority-box">
+  <div class="priority-header">TOP PRIORITIES</div>
+  
+  <div class="priorities-list">
+    <div *ngFor="let priority of priorities; let i = index" class="priority-item">
+      <span class="priority-number">{{ i + 1 }}</span>
+      <input 
+        type="text"
+        [value]="priority.title"
+        class="priority-input"
+        disabled>
+      <button 
+        class="priority-remove"
+        (click)="removePriority(priority.id)">
+        ×
+      </button>
+    </div>
+
+    <div class="add-priority-wrapper">
+      <input 
+        type="text"
+        [(ngModel)]="newPriorityTitle"
+        (keyup.enter)="addPriority()"
+        placeholder="+ Add Priority"
+        class="priority-input add-input">
+    </div>
+  </div>
+</div>

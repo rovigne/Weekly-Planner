@@ -1,0 +1,10 @@
+<div class="notes-box">
+  <div class="notes-header">NOTES</div>
+  
+  <textarea 
+    [(ngModel)]="notesText"
+    (change)="updateNotes()"
+    placeholder="Write your notes here..."
+    class="notes-textarea">
+  </textarea>
+</div>

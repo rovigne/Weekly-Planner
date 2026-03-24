@@ -1,0 +1,39 @@
+<div class="todo-box">
+  <div class="todo-header">TO-DO LIST</div>
+  
+  <div class="todo-items">
+    <div *ngFor="let item of todoItems" class="todo-item">
+      <input 
+        type="checkbox"
+        [checked]="item.completed"
+        (change)="toggleTodoItem(item.id)"
+        class="todo-checkbox">
+      <span 
+        class="todo-text"
+        [class.completed]="item.completed">
+        {{ item.title }}
+      </span>
+      <button 
+        class="todo-remove"
+        (click)="removeTodoItem(item.id)">
+        ×
+      </button>
+    </div>
+
+    <div class="todo-input-wrapper">
+      <input 
+        type="text"
+        [(ngModel)]="newTodoTitle"
+        (keyup.enter)="addTodoItem()"
+        placeholder="To-do item..."
+        class="todo-input">
+    </div>
+
+    <button 
+      *ngIf="newTodoTitle.trim()"
+      (click)="addTodoItem()"
+      class="add-item-btn">
+      + Add Item
+    </button>
+  </div>
+</div>

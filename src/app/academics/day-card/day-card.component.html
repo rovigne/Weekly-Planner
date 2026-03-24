@@ -1,0 +1,57 @@
+<div class="day-card" [ngClass]="'color-' + getColorClass()">
+  <div class="day-header">{{ day.day }}</div>
+  
+  <div class="tasks-container">
+    <!-- Uncompleted Tasks -->
+    <div class="uncompleted-tasks">
+      <div *ngFor="let task of getUncompletedTasks()" class="task-item">
+        <input 
+          type="checkbox" 
+          [checked]="task.completed"
+          (change)="toggleTask(task.id)"
+          class="task-checkbox">
+        <span 
+          class="task-title"
+          [class.completed]="task.completed">
+          {{ task.title }}
+        </span>
+        <button 
+          class="task-remove"
+          (click)="removeTask(task.id)">
+          ×
+        </button>
+      </div>
+
+      <!-- Task Input -->
+      <div class="task-input-wrapper">
+        <span class="task-input-icon">+</span>
+        <input 
+          type="text"
+          [(ngModel)]="newTaskTitle"
+          (keyup.enter)="addTask()"
+          placeholder="Task..."
+          class="task-input">
+      </div>
+    </div>
+
+    <!-- Completed Tasks Section -->
+    <div *ngIf="getCompletedTasks().length > 0" class="completed-section">
+      <div *ngFor="let task of getCompletedTasks()" class="completed-task">
+        <input 
+          type="checkbox" 
+          [checked]="task.completed"
+          (change)="toggleTask(task.id)"
+          class="task-checkbox">
+        <span 
+          class="task-title completed">
+          {{ task.title }}
+        </span>
+        <button 
+          class="task-remove"
+          (click)="removeTask(task.id)">
+          ×
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

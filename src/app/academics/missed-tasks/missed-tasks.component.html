@@ -1,0 +1,29 @@
+<div class="missed-box">
+  <div class="missed-header">MISSED TASKS</div>
+  
+  <div class="missed-items" *ngIf="missedTasks.length > 0; else noMissed">
+    <div *ngFor="let task of missedTasks" class="missed-item">
+      <input 
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleMissedTask(task.id)"
+        class="missed-checkbox">
+      <span 
+        class="missed-text"
+        [class.completed]="task.completed">
+        {{ task.title }}
+      </span>
+      <button 
+        class="missed-remove"
+        (click)="removeMissedTask(task.id)">
+        ×
+      </button>
+    </div>
+  </div>
+
+  <ng-template #noMissed>
+    <div class="no-missed">
+      <p>No missed tasks</p>
+    </div>
+  </ng-template>
+</div>
