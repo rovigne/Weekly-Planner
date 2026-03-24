@@ -1,5 +1,5 @@
 {
-  "buildCommand": "ng build --configuration production",
+  "buildCommand": "NODE_OPTIONS=--openssl-legacy-provider ng build --configuration production",
   "outputDirectory": "dist/to-do-list",
   "rewrites": [
     {
